@@ -1,0 +1,24 @@
+#include <sys/syscall.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <linux/kernel.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+//#define __NR_mycall 1
+
+/*char* helloworld_syscall(char *a[]) {
+	return syscall(314,a[1]);
+}*/
+
+int main(int argc, char *argv[])
+{
+	int len;
+	len=strlen(argv[1]);
+	//a = helloworld_syscall(char); perror("msg");
+	
+	printf("System call returned %ld\n", syscall(314, len, argv[1]));
+	//syscall(351);
+	return 0;
+}
